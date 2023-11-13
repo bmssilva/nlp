@@ -1,1 +1,4 @@
-# Classificação de titulos bibliográficos utilizando modelos pré-treinados e bibliotega HuggingFace (https://huggingface.co/)
+# Classificação de títulos bibliográficos utilizando modelos pré-treinados
+
+Bibliotega HuggingFace (https://huggingface.co/)
+BertImbau
