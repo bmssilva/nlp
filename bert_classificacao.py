@@ -4,7 +4,8 @@ import nltk
 nltk.download('punkt')
 
 import os
-import sys
+#import sys
+#sys.path.append('C:\\Python311\\Lib\\site-packages')
 
 import torch
 import torch.nn as nn
@@ -20,9 +21,17 @@ with open('iso.csv', 'r', encoding='utf-8') as f:
 
   header, corpus = corpus[0], corpus[1:]
 
-corpus = corpus[:10000]
+#corpus = corpus[:10000]
 shuffle(corpus)
 print(len(corpus)) 
+
+# Corpus assunto
+with open('id_assunto.csv', 'r', encoding='utf-8') as f:
+  readerAssunto = csv.reader(f, delimiter=';', quotechar='\"')
+  corpusAssunto = list(readerAssunto)
+
+  readerAssunto, corpusAssunto = corpusAssunto[0], corpusAssunto[1:]
+
 #print(reader) 
 #i=0
 #for w in corpus:
@@ -32,8 +41,8 @@ print(len(corpus))
 #        print(w[4])
 
 
-titulo = [w[1] for w in corpus if len(w[1]) > 1]
-assunto = [2 if w[4] in ['Antropologia', 'Aculturação'] else 0 if w[4] in ['Administração', 'administrativo'] else 1 for w in corpus if len(w) >= 4]
+titulo = [w[1] for w in corpus if len(w) > 1 and len(w[1]) > 1]
+assunto = [int(w[0]) for w in corpusAssunto]
 data = [{ 'X': titulo, 'y': assunto } for (titulo, assunto) in zip(titulo, assunto)]
 
 
@@ -53,7 +62,7 @@ print(len(treino), len(teste))
 # Instanciando parâmetros
 
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-nclasses = 3 # negativo, neutra, positiva
+nclasses = len(assunto) # negativo, neutra, positiva
 nepochs = 2 # épocas de treino
 batch_size = 8 # tamanho dos lotes
 batch_status = 32 # 
@@ -93,7 +102,7 @@ def evaluate(model, testdata):
     if (batch_idx+1) % batch_status == 0:
       print('Progress:', round(batch_idx / len(testdata) if len(testdata) > 0 else batch_idx , 2), batch_idx)
   
-  print(classification_report(y_real, y_pred, labels=[0, 1, 2], target_names=['Administração', 'Sem tag assunto', 'Antropologia']))
+  print(classification_report(y_real, y_pred, labels=[0, 1, 2], target_names=[corpusAssunto[0][1], corpusAssunto[1][1], corpusAssunto[2][1]]))
   f1 = f1_score(y_real, y_pred, average='weighted')
   acc = accuracy_score(y_real, y_pred)
   return f1, acc
