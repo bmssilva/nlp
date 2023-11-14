@@ -148,3 +148,22 @@ for epoch in range(nepochs):
   if repeat == early_stop:
     break
 
+
+# Utilizando o modelo 
+
+# sentenças a serem traduzidas
+batch_input_str = (("História do Brasil"))
+# tokenizando as sentenças
+encoded = tokenizer(batch_input_str, return_tensors='pt', padding=True).to(device)
+# gerando assunto
+outputs =  model(**encoded)
+# Probabilidades de saída
+logits = outputs.logits
+
+# Converte as probabilidades para predições
+predictions = torch.argmax(logits, dim=1).item()
+
+print(f"Assunto previsto: {predictions}")
+print(corpusAssunto[predictions][1])
+# preparando a saída
+#tokenizer.batch_decode(assuntoParaTitulo, skip_special_tokens=True)
