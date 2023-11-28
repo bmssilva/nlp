@@ -1,0 +1,7 @@
+#pip install --upgrade --force-reinstall -r requirements.txt
+transformers
+# lib para verificar qual o idioma na frase
+langid 
+# libs para tradução en pt
+sentencepiece
+translate-toolkit
