@@ -1,5 +1,7 @@
 # Classificação Bibliografica através de Modelos Tranformers
 
+Criado como atividade da disciplina INFO7008 - COMPUTAÇÃO BIOINSPIRADA - 2023-2 da UFPR
+
 ### Ferramentas e modelos
 > HuggingFace (https://huggingface.co/)
 > 
