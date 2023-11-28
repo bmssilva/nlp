@@ -6,9 +6,11 @@ BertImbau
 ## Bibliotecas necessárias: 
 
 > pip install transformers
+> 
 > pip install sacremoses
-
->> Para detecção de idioma foi utilizado o modelo pré-treinado langid que é baseado no modelo lid-mb-3 (LID - Language Identification).
+> 
+> Para detecção de idioma foi utilizado o modelo pré-treinado langid que é baseado no modelo lid-mb-3 (LID - Language Identification).
+> 
 > pip install langid 
 
 
