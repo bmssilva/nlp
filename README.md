@@ -1,8 +1,12 @@
-# Classificação de títulos bibliográficos utilizando modelos pré-treinados
+# Tradução de títulos bibliográficos e classificação de títulos em assunto utilizando transformer
 
-Bibliotega HuggingFace (https://huggingface.co/)
-BertImbau
-
+### Ferramentas e modelos
+> HuggingFace (https://huggingface.co/)
+> 
+> BertImbau
+> 
+### Metodologia utilizada
+<img width="402" alt="metodologia" src="https://github.com/bmssilva/nlp/assets/3011040/1bafe1d7-c0ef-4c0f-a1a0-32567f4ec1c0">
 
 ## Passos iniciais antes de executar o código
 
@@ -30,7 +34,7 @@ O script irá ler o corpus da pasta en-pt_br.tmx, em seguida efetuará o treinam
 Para usar o modelo gerado, executar o python .\traducao.py, este lê o modelo gerado, e executa a tradução do arquivo de teste iso_acervos_teste.csv
 
 ## Referências
-Este código foi implementado com base no tutotrial disponivél em https://www.youtube.com/watch?v=GncyWR-dYW8&list=PLLrlHSmC0Mw73a1t73DEjgGMPyu8QssWT&index=51 disponibilizado neste canal https://www.youtube.com/@Thicasfer
+Este código foi implementado com base no tutotrial disponível em https://www.youtube.com/watch?v=GncyWR-dYW8&list=PLLrlHSmC0Mw73a1t73DEjgGMPyu8QssWT&index=51 disponibilizado neste canal https://www.youtube.com/@Thicasfer
 
 Também é possivel acessar a versão no COLAB, disponível em https://colab.research.google.com/drive/1oVc-snXASxmlks2fHjxZ81fKG_mBW-jR?usp=sharing
 
